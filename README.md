@@ -11,5 +11,5 @@ How to use
 
 1. make a virtualenv
 2. pip install -r requirements.txt
-3. python manage.py reset_db
-4. python manage.py runserver
+3. python run.py reset_db
+4. python run.py runserver

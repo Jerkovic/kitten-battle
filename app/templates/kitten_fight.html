@@ -1,0 +1,33 @@
+{% extends "layouts/default.html" %}
+
+{% block body %}
+	
+  <h1>Click the cutest kitten!</h1>
+		
+		
+  <table cellpadding="15" cellspacing="115">
+    <tr>
+      <td class="pic">
+      	<form action="{{ url_for('kitten_fight') }}" method="post">
+      		<input type="hidden" name="winner" value="{{ kitten1.id }}" />
+      		<input type="hidden" name="loser" value="{{ kitten2.id }}" />
+      		<input type="image" class="thumbnail" src="/static/uploads/{{ kitten1.id }}" width="120" height="120"/>
+      	</form>
+      	</td>
+      <td rowspan="2"><h2>vs</h2></td>
+      <td class="pic">
+      	<form action="{{ url_for('kitten_fight') }}" method="post">
+      		<input type="hidden" name="winner" value="{{ kitten2.id }}" />
+      		<input type="hidden" name="loser" value="{{ kitten1.id }}" />
+      		<input type="image" class="thumbnail" src="/static/uploads/{{ kitten2.id }}" width="120" height="120"/>
+      	</form>
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center"><h3>{{ kitten1.name|capitalize }}</h3></td>
+      <td class="text-center"><h3>{{ kitten2.name|capitalize }}</h3></td>
+    </tr>
+  </table>
+    	
+ 			
+{% endblock %}

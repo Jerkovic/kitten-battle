@@ -1,0 +1,28 @@
+{% extends "layouts/default.html" %}
+
+{% block body %}
+{% from "_formhelpers.html" import render_field %}
+
+{% if form.errors %}
+	<div class="alert alert-error">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		Error in form
+	</div>
+{% endif %}
+
+<form method="post" action="{{ url_for('user_register') }}" class="form-horizontal">
+	<fieldset>  
+		<legend>Register</legend>  
+	  	{{ form.hidden_tag() }}
+	  
+	  	{{ render_field(form.username) }}
+	  	{{ render_field(form.email) }}
+	  	{{ render_field(form.password) }}
+	  	{{ render_field(form.confirm) }}
+	  	{{ render_field(form.accept_tos) }}
+		<div class="form-actions">
+			<button type="submit" class="btn btn-large btn-primary">Register</button>
+		</div>
+	</fieldset>
+</form>
+{% endblock %}

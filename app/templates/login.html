@@ -1,0 +1,13 @@
+{% extends "layouts/default.html" %}
+
+{% block body %}
+
+
+
+<form method="post" action="{{ url_for('login') }}" class="form-horizontal">
+	<fieldset>  
+		<legend>Please login or <a href="{{ url_for('user_register') }}">register</a></legend>
+	</fieldset>
+</form>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layouts/default.html" %}
+
+{% block body %}
+
+	{% from "_formhelpers.html" import render_field %}
+	
+	{% if form.errors %}
+		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			Error in form
+		</div>
+	{% endif %}
+
+
+	<form method="post" enctype="multipart/form-data" action="{{ url_for('upload') }}" class="form-horizontal">
+		<fieldset>  
+			<legend>Upload new kitten</legend>  
+  		  	{{ form.hidden_tag() }}
+  
+			{{ render_field(form.name) }}
+			{{ render_field(form.img_file) }}
+		  	
+			<div class="form-actions">
+				<button type="submit" class="btn btn-large btn-primary">Upload</button>
+			</div>
+		</fieldset>
+	</form>
+
+
+
+{% endblock %}
+
+
+
+
+
+

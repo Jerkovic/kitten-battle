@@ -1,0 +1,40 @@
+{% extends "layouts/default.html" %}
+
+{% block body %}
+		<div class="hero-unit" style="position: relative;">
+    		<h1>Cutest Kitten Battle</h1>
+    		<p>May The Cutest Kitten Win! Upload your own paw star and battle it out!</p>
+    		<p>
+    			{% if not g.user: %}
+    			<a class="btn btn-success btn-large" href="{{ url_for('user_register') }}"><i class="icon-user icon-white"> </i> Don't have an account? Register now!</a>
+    			{% endif %}
+    			{% if g.user: %}
+    			<a class="btn btn-primary btn-large" href="{{ url_for('upload') }}"><i class="icon-upload icon-white"> </i> Upload your Cute Kitten!</a>
+    			<a class="btn btn-inverse btn-large" href="{{ url_for('kitten_fight') }}"><i class="icon-bell icon-white"> </i> Start Kitten Battle!</a>
+    			{% endif %}
+    		</p>
+    		
+    		<div style="position: absolute; right: 50px; bottom: 25px;"><img src="{{ url_for('static', filename='paw-star-cat.png') }}"/></div>
+    		
+    	</div>
+    	
+    	<div class="page-header">
+            <h2>Top 12 - Cutest Kittens <small>based on ELO rating system</small></h2>
+        </div>
+        <ul class="thumbnails">
+		{% for kitten in kittens %}
+		  <li class="span2">
+		  		<a href="{{url_for('view_kitten', slug=kitten.slug, kitten_id=kitten.id)}}" class="thumbnail" title="{{ kitten.name }} ({{ kitten.rating }}%) by {{ kitten.user.username }}"><img class="" src="/static/uploads/{{ kitten.id }}" /></a>
+		  </li>
+		{% endfor %}
+		</ul>  
+		    		
+		<!-- Recently Added Kittens! -->
+		<!-- Cutest Kittens! -->
+		
+		
+		
+{% endblock %}
+
+
+ 

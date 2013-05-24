@@ -1,0 +1,17 @@
+Flask==0.9
+Flask-Gravatar==0.3.0
+Flask-SQLAlchemy==0.16
+Flask-Script==0.5.3
+Flask-WTF==0.8.3
+Jinja2==2.7
+MarkupSafe==0.18
+Pillow==2.0.0
+SQLAlchemy==0.8.1
+Unidecode==0.04.12
+WTForms==1.0.4
+Werkzeug==0.8.3
+argparse==1.2.1
+distribute==0.6.24
+python-slugify==0.0.5
+wsgiref==0.1.2
+yolk==0.4.3

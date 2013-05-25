@@ -4,7 +4,6 @@ from app import User, Kitten
 
 manager = Manager(app)
 
-
 @manager.command
 def reset_db():
     """ Resets database and creates some initial fixtures for us """
@@ -22,7 +21,6 @@ def reset_db():
         db.session.add(k)
     
     db.session.commit()
-
 
 
 @manager.command

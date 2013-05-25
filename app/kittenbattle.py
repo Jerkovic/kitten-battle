@@ -5,6 +5,7 @@ from functools import wraps
 from flask import *
 from flask.ext.sqlalchemy import *
 from sqlalchemy.sql import func
+from sqlalchemy.exc import *
 from werkzeug import generate_password_hash, check_password_hash
 
 from PIL import Image, ImageOps
@@ -126,7 +127,11 @@ class Kitten(db.Model):
 
 @app.errorhandler(404)
 def not_found(error):
-    return render_template('error.html'), 404
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html'), 500
 
 def login_required(f):
     @wraps(f)
@@ -225,9 +230,13 @@ def logout():
 def user_register():
     form = Signup_Form()
     if form.validate_on_submit():
-        user = User(form.username.data, form.email.data, form.password.data)
-        db.session.add(user)
-        db.session.commit()
+        try:
+            user = User(form.username.data, form.email.data, form.password.data)
+            db.session.add(user)
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            raise e
         flash('Registration was successful! Please login...', 'success')
         return redirect(url_for('index'))
     return render_template("register.html", form=form)

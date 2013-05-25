@@ -3,6 +3,8 @@
 
 from flask.ext.wtf import Form, TextField, PasswordField, BooleanField, FileField
 from flask.ext.wtf import Required, Email, EqualTo, Length, file_allowed, file_required
+from wtforms.ext.sqlalchemy.validators import Unique
+
 
 class Signup_Form(Form):
     username = TextField('Username', validators = [Required(), Length(min=4, max=12)])

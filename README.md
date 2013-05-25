@@ -5,6 +5,7 @@ Cutest kitten wins based on ELO Rating System.
 
 Made with Flask, Pillow, Flask-SQLAlchemy and Flask-Script.
 
+Make sure you have Python's development libraries installed. In Debian or Ubuntu.
 
 How to use 
 ==========

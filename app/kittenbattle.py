@@ -151,6 +151,8 @@ def before_request():
 
 @app.route('/')
 def index():
+    print dir(request)
+    print request.user_agent
     kittens = Kitten.query.order_by('rating desc').limit(12).all()
     return render_template("index.html", kittens=kittens)
 

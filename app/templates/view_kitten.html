@@ -6,20 +6,18 @@
 		<h1>{{ kitten.name|capitalize }}</h1>
 		<br/>
 		<div class="progress ">
-    		<div class="bar bar-success" style="width: {{ kitten.win_percentage }}%;"> </div>
-    		<div class="bar bar-warning" style="width: {{ kitten.lost_percentage }}%;"> </div>
-    	</div>
+			<div class="bar bar-success" style="width: {{ kitten.win_percentage }}%;"> </div>
+			<div class="bar bar-warning" style="width: {{ kitten.lost_percentage }}%;"> </div>
+		</div>
 
 		<ul>
 			<li>Total Fights: {{ kitten.battles }}</li>
-            <li>Won: {{ kitten.won }} ({{ kitten.win_percentage }}%)</li>
-            <li>Lost: {{ kitten.lost }} ({{ kitten.lost_percentage }}%)</li>
-            <li>ELO rating: {{ kitten.rating }}</li>
-        </ul>
+			<li>Won: {{ kitten.won }} ({{ kitten.win_percentage }}%)</li>
+			<li>Lost: {{ kitten.lost }} ({{ kitten.lost_percentage }}%)</li>
+			<li>ELO rating: {{ kitten.rating }}</li>
+		</ul>
         
-        
-        <p class="lead">Uploaded by <strong>{{ kitten.user.username }}</strong> <span class="muted">{{ kitten.created|timesince }}</span> </p>
-        
-        <!-- img class="thumbnail" src="{{ kitten.user.email|gravatar }}" width="50" height="50"/-->
+		<p class="lead">Uploaded by <strong>{{ kitten.user.username }}</strong> <span class="muted">{{ kitten.created|timesince }}</span> </p>
+		<!-- img class="thumbnail" src="{{ kitten.user.email|gravatar }}" width="50" height="50"/-->
 	</div>		
 {% endblock %}
